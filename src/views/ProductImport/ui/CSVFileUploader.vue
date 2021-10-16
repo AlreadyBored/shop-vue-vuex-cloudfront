@@ -57,7 +57,7 @@ const fetchPresignedS3Url = (url: string, fileName: string) => {
 			name: encodeURIComponent(fileName),
 		},
 		headers: {
-			Authorization: `Basic ${localStorage.getItem('creds')}`,
+			Authorization: `Basic ${localStorage.getItem('authorization_token')}`,
 		},
 	});
 };

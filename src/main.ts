@@ -9,7 +9,10 @@ import { connecti18n } from './plugins/vue-i18n';
 import store from './store/store';
 import axios from 'axios';
 
-localStorage.setItem('creds', 'YWxyZWFkeWJvcmVkOlRFU1RfUEFTU1dPUkQ=');
+localStorage.setItem(
+	'authorization_token',
+	'YWxyZWFkeWJvcmVkOlRFU1RfUEFTU1dPUkQ='
+);
 
 axios.interceptors.response.use(
 	res => res,
