@@ -56,12 +56,14 @@ const fetchPresignedS3Url = (url: string, fileName: string) => {
 		params: {
 			name: encodeURIComponent(fileName),
 		},
+		headers: {
+			Authorization: `Basic ${localStorage.getItem('creds')}`,
+		},
 	});
 };
 
 const uploadFileBy = async (url: string, file: File) => {
 	const destUrl = await fetchPresignedS3Url(url, file.name);
-
 	console.info('Uploading to: ', destUrl.data.signedURL);
 
 	// save
