@@ -77,7 +77,11 @@ const cartModuleStore: Module<CartState, any> = {
 			profileApi
 				.fetchCart()
 				.then(data => {
-					commit('setCartItems', data);
+					const { data: cartData }: { data: any } = data;
+					const items = cartData.data?.cart?.items
+						? cartData.data.cart.items
+						: [];
+					commit('setCartItems', items);
 				})
 				.catch(e => {
 					commit('setErrorMessage', e.message);
